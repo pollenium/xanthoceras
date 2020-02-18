@@ -1,5 +1,5 @@
 {
-  "name": "pollenium-xeranthemum",
+  "name": "pollenium-xanthoceras",
   "version": "1.0.0",
   "description": "",
   "main": "node/index.js",
@@ -8,22 +8,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/pollenium/xeranthemum.git"
+    "url": "git+ssh://git@github.com/pollenium/xanthoceras.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pollenium/xeranthemum/issues"
+    "url": "https://github.com/pollenium/xanthoceras/issues"
   },
-  "homepage": "https://github.com/pollenium/xeranthemum#readme",
+  "homepage": "https://github.com/pollenium/xanthoceras#readme",
   "devDependencies": {
     "tsc": "^1.20150623.0",
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "pollenium-buttercup": "^19.1.0",
-    "pollenium-ilex": "^9.2.0",
-    "pollenium-uvaursi": "^8.5.0",
-    "prompt-promise": "^1.0.3"
+    "pollenium-forgetmenot": "^1.0.0",
+    "pollenium-orchid": "^11.1.1",
+    "pollenium-xeranthemum": "^2.0.0"
   }
 }

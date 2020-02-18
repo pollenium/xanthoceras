@@ -1,3 +1,0 @@
-import { promptNew } from '../'
-
-promptNew()
