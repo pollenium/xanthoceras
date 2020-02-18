@@ -36,25 +36,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var promptFetchSigner_1 = require("./lib/promptFetchSigner");
+var __1 = require("../../");
 var pollenium_orchid_1 = require("pollenium-orchid");
-var forgetmenot_1 = require("./lib/forgetmenot");
-function run() {
+var provider_1 = require("./provider");
+var pollenium_buttercup_1 = require("pollenium-buttercup");
+function fetchMonarchicExecutorOracleState() {
     return __awaiter(this, void 0, void 0, function () {
-        var signer, deployer, address;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, promptFetchSigner_1.promptFetchSigner('admin')];
+        var address, reader, _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    address = new pollenium_buttercup_1.Address(__1.xanthoceras.get('monarchicExecutorOracle'));
+                    reader = new pollenium_orchid_1.MonarchicExecutorOracleReader(provider_1.provider, address);
+                    _a = {};
+                    return [4 /*yield*/, reader.fetchOwner()];
                 case 1:
-                    signer = _a.sent();
-                    deployer = new pollenium_orchid_1.EngineDeployer(signer);
-                    return [4 /*yield*/, deployer.deploy()];
+                    _a.owner = _b.sent();
+                    return [4 /*yield*/, reader.fetchHot()];
                 case 2:
-                    address = _a.sent();
-                    forgetmenot_1.forgetmenot.set('engine', address);
-                    return [2 /*return*/];
+                    _a.hot = _b.sent();
+                    return [4 /*yield*/, reader.fetchCold()];
+                case 3: return [2 /*return*/, (_a.cold = _b.sent(),
+                        _a)];
             }
         });
     });
 }
-run();
+exports.fetchMonarchicExecutorOracleState = fetchMonarchicExecutorOracleState;

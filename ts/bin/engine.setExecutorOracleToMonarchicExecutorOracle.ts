@@ -1,13 +1,13 @@
 import { promptFetchSigner } from './lib/promptFetchSigner'
 import { EngineWriter } from 'pollenium-orchid'
-import { forgetmenot } from './lib/forgetmenot'
+import { xanthoceras } from '../'
 import { fetchEngineState } from './lib/fetchEngineState'
 import { Address } from 'pollenium-buttercup'
 
 async function run() {
 
-  const engine = new Address(forgetmenot.get('engine'))
-  const monarchicExecutorOracle = new Address(forgetmenot.get('monarchicExecutorOracle'))
+  const engine = new Address(xanthoceras.get('engine'))
+  const monarchicExecutorOracle = new Address(xanthoceras.get('monarchicExecutorOracle'))
 
   const engineState = await fetchEngineState()
   if (engineState.executorOracle.uu.getIsEqual(monarchicExecutorOracle)) {

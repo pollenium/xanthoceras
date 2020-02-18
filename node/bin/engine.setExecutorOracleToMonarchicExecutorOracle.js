@@ -36,20 +36,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var provider_1 = require("./provider");
-var ethers_1 = require("ethers");
-var pollenium_xeranthemum_1 = require("pollenium-xeranthemum");
-function promptFetchSigner() {
+var promptFetchSigner_1 = require("./lib/promptFetchSigner");
+var pollenium_orchid_1 = require("pollenium-orchid");
+var __1 = require("../");
+var fetchEngineState_1 = require("./lib/fetchEngineState");
+var pollenium_buttercup_1 = require("pollenium-buttercup");
+function run() {
     return __awaiter(this, void 0, void 0, function () {
-        var keypair;
+        var engine, monarchicExecutorOracle, engineState, signer, writer;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, pollenium_xeranthemum_1.promptFetchKeypair('admin')];
+                case 0:
+                    engine = new pollenium_buttercup_1.Address(__1.xanthoceras.get('engine'));
+                    monarchicExecutorOracle = new pollenium_buttercup_1.Address(__1.xanthoceras.get('monarchicExecutorOracle'));
+                    return [4 /*yield*/, fetchEngineState_1.fetchEngineState()];
                 case 1:
-                    keypair = _a.sent();
-                    return [2 /*return*/, new ethers_1.ethers.Wallet(keypair.privateKey.u, provider_1.provider)];
+                    engineState = _a.sent();
+                    if (engineState.executorOracle.uu.getIsEqual(monarchicExecutorOracle)) {
+                        throw new Error('Already set');
+                    }
+                    return [4 /*yield*/, promptFetchSigner_1.promptFetchSigner('admin')];
+                case 2:
+                    signer = _a.sent();
+                    writer = new pollenium_orchid_1.EngineWriter(signer, engine);
+                    return [4 /*yield*/, writer.setExecutorOracle(monarchicExecutorOracle)];
+                case 3:
+                    _a.sent();
+                    return [2 /*return*/];
             }
         });
     });
 }
-exports.promptFetchSigner = promptFetchSigner;
+run();

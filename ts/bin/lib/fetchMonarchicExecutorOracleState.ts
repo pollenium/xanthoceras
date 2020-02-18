@@ -1,4 +1,4 @@
-import { forgetmenot } from './forgetmenot'
+import { xanthoceras } from '../../'
 import { MonarchicExecutorOracleReader } from 'pollenium-orchid'
 import { provider } from './provider'
 import { Address } from 'pollenium-buttercup'
@@ -10,7 +10,7 @@ export interface MonarchicExecutorOracleState {
 }
 
 export async function fetchMonarchicExecutorOracleState(): Promise<MonarchicExecutorOracleState> {
-  const address = new Address(forgetmenot.get('monarchicExecutorOracle'))
+  const address = new Address(xanthoceras.get('monarchicExecutorOracle'))
   const reader = new MonarchicExecutorOracleReader(provider, address)
   return {
     owner: await reader.fetchOwner(),

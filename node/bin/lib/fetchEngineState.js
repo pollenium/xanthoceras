@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var forgetmenot_1 = require("./forgetmenot");
+var __1 = require("../../");
 var pollenium_orchid_1 = require("pollenium-orchid");
 var provider_1 = require("./provider");
 var pollenium_buttercup_1 = require("pollenium-buttercup");
@@ -46,7 +46,7 @@ function fetchEngineState() {
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    address = new pollenium_buttercup_1.Address(forgetmenot_1.forgetmenot.get('engine'));
+                    address = new pollenium_buttercup_1.Address(__1.xanthoceras.get('engine'));
                     reader = new pollenium_orchid_1.EngineReader(provider_1.provider, address);
                     _a = {};
                     return [4 /*yield*/, reader.fetchOwner()];

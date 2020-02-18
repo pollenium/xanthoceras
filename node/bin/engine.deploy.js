@@ -36,30 +36,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var forgetmenot_1 = require("./forgetmenot");
+var promptFetchSigner_1 = require("./lib/promptFetchSigner");
 var pollenium_orchid_1 = require("pollenium-orchid");
-var provider_1 = require("./provider");
-var pollenium_buttercup_1 = require("pollenium-buttercup");
-function fetchMonarchicExecutorOracleState() {
+var __1 = require("../");
+function run() {
     return __awaiter(this, void 0, void 0, function () {
-        var address, reader, _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    address = new pollenium_buttercup_1.Address(forgetmenot_1.forgetmenot.get('monarchicExecutorOracle'));
-                    reader = new pollenium_orchid_1.MonarchicExecutorOracleReader(provider_1.provider, address);
-                    _a = {};
-                    return [4 /*yield*/, reader.fetchOwner()];
+        var signer, deployer, address;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, promptFetchSigner_1.promptFetchSigner('admin')];
                 case 1:
-                    _a.owner = _b.sent();
-                    return [4 /*yield*/, reader.fetchHot()];
+                    signer = _a.sent();
+                    deployer = new pollenium_orchid_1.EngineDeployer(signer);
+                    return [4 /*yield*/, deployer.deploy()];
                 case 2:
-                    _a.hot = _b.sent();
-                    return [4 /*yield*/, reader.fetchCold()];
-                case 3: return [2 /*return*/, (_a.cold = _b.sent(),
-                        _a)];
+                    address = _a.sent();
+                    __1.xanthoceras.set('engine', address);
+                    return [2 /*return*/];
             }
         });
     });
 }
-exports.fetchMonarchicExecutorOracleState = fetchMonarchicExecutorOracleState;
+run();
