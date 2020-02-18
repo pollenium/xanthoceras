@@ -21,7 +21,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "pollenium-forgetmenot": "^1.0.0",
+    "pollenium-forgetmenot": "^3.0.0",
     "pollenium-orchid": "^11.1.1",
     "pollenium-xeranthemum": "^2.0.0"
   }
