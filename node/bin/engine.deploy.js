@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var promptFetchSigner_1 = require("./lib/promptFetchSigner");
-var pollenium_orchid_1 = require("pollenium-orchid");
+var pollenium_alchemilla_1 = require("pollenium-alchemilla");
 var __1 = require("../");
 function run() {
     return __awaiter(this, void 0, void 0, function () {
@@ -47,10 +47,10 @@ function run() {
                 case 0: return [4 /*yield*/, promptFetchSigner_1.promptFetchSigner('admin')];
                 case 1:
                     signer = _a.sent();
-                    deployer = new pollenium_orchid_1.EngineDeployer(signer);
+                    deployer = new pollenium_alchemilla_1.EngineDeployer({ signer: signer });
                     return [4 /*yield*/, deployer.deploy()];
                 case 2:
-                    address = _a.sent();
+                    address = (_a.sent()).address;
                     __1.xanthoceras.set('engine', address);
                     return [2 /*return*/];
             }

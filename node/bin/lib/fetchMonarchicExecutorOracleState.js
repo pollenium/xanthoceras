@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var __1 = require("../../");
-var pollenium_orchid_1 = require("pollenium-orchid");
+var pollenium_alchemilla_1 = require("pollenium-alchemilla");
 var provider_1 = require("./provider");
 var pollenium_buttercup_1 = require("pollenium-buttercup");
 function fetchMonarchicExecutorOracleState() {
@@ -47,7 +47,7 @@ function fetchMonarchicExecutorOracleState() {
             switch (_b.label) {
                 case 0:
                     address = new pollenium_buttercup_1.Address(__1.xanthoceras.get('monarchicExecutorOracle'));
-                    reader = new pollenium_orchid_1.MonarchicExecutorOracleReader(provider_1.provider, address);
+                    reader = new pollenium_alchemilla_1.MonarchicExecutorOracleReader({ provider: provider_1.provider, address: address });
                     _a = {};
                     return [4 /*yield*/, reader.fetchOwner()];
                 case 1:

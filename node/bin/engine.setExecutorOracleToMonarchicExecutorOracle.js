@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var promptFetchSigner_1 = require("./lib/promptFetchSigner");
-var pollenium_orchid_1 = require("pollenium-orchid");
+var pollenium_alchemilla_1 = require("pollenium-alchemilla");
 var __1 = require("../");
 var fetchEngineState_1 = require("./lib/fetchEngineState");
 var pollenium_buttercup_1 = require("pollenium-buttercup");
@@ -58,7 +58,7 @@ function run() {
                     return [4 /*yield*/, promptFetchSigner_1.promptFetchSigner('admin')];
                 case 2:
                     signer = _a.sent();
-                    writer = new pollenium_orchid_1.EngineWriter(signer, engine);
+                    writer = new pollenium_alchemilla_1.EngineWriter({ signer: signer, address: engine });
                     return [4 /*yield*/, writer.setExecutorOracle(monarchicExecutorOracle)];
                 case 3:
                     _a.sent();

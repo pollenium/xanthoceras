@@ -1,5 +1,5 @@
 import { promptFetchSigner } from './lib/promptFetchSigner'
-import { EngineWriter } from 'pollenium-orchid'
+import { EngineWriter } from 'pollenium-alchemilla'
 import { xanthoceras } from '../'
 import { fetchEngineState } from './lib/fetchEngineState'
 import { Address } from 'pollenium-buttercup'
@@ -15,7 +15,7 @@ async function run() {
   }
 
   const signer = await promptFetchSigner('admin')
-  const writer = new EngineWriter(signer, engine)
+  const writer = new EngineWriter({ signer, address: engine })
 
   await writer.setExecutorOracle(monarchicExecutorOracle)
 }
