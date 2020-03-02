@@ -53,7 +53,13 @@ function fetchEngineState() {
                 case 1:
                     _a.owner = _b.sent();
                     return [4 /*yield*/, reader.fetchExecutorOracle()];
-                case 2: return [2 /*return*/, (_a.executorOracle = _b.sent(),
+                case 2:
+                    _a.executorOracle = _b.sent();
+                    return [4 /*yield*/, reader.fetchOrderSalt()];
+                case 3:
+                    _a.orderSalt = _b.sent();
+                    return [4 /*yield*/, reader.fetchDowvsSalt()];
+                case 4: return [2 /*return*/, (_a.dowvsSalt = _b.sent(),
                         _a)];
             }
         });

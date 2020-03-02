@@ -47,7 +47,9 @@ function run() {
                     state = _a.sent();
                     console.dir({
                         owner: state.owner.uu.toHex(),
-                        executorOracle: state.executorOracle.uu.toHex()
+                        executorOracle: state.executorOracle.uu.toHex(),
+                        orderSalt: state.orderSalt.uu.toHex(),
+                        dowvsSalt: state.dowvsSalt.uu.toHex()
                     });
                     return [2 /*return*/];
             }
