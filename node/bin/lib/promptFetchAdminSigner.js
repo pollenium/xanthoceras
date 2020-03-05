@@ -36,25 +36,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var promptFetchAdminSigner_1 = require("./lib/promptFetchAdminSigner");
-var pollenium_alchemilla_1 = require("pollenium-alchemilla");
-var fmns_1 = require("./lib/fmns");
-function run() {
+var provider_1 = require("./provider");
+var ethers_1 = require("ethers");
+var pollenium_xeranthemum_1 = require("pollenium-xeranthemum");
+function promptFetchAdminSigner() {
     return __awaiter(this, void 0, void 0, function () {
-        var signer, deployer, address;
+        var keypair;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, promptFetchAdminSigner_1.promptFetchAdminSigner()];
+                case 0: return [4 /*yield*/, pollenium_xeranthemum_1.utils.promptComputeKeypair()];
                 case 1:
-                    signer = _a.sent();
-                    deployer = new pollenium_alchemilla_1.EngineDeployer({ signer: signer });
-                    return [4 /*yield*/, deployer.deploy()];
-                case 2:
-                    address = (_a.sent()).address;
-                    fmns_1.addressesFmn.set({ key: 'engine', value: address });
-                    return [2 /*return*/];
+                    keypair = _a.sent();
+                    if (!keypair.getAddress().uu.getIsEqual(pollenium_xeranthemum_1.users.admin)) {
+                        throw new Error('Address mismatch');
+                    }
+                    return [2 /*return*/, new ethers_1.ethers.Wallet(keypair.privateKey.u, provider_1.provider)];
             }
         });
     });
 }
-run();
+exports.promptFetchAdminSigner = promptFetchAdminSigner;

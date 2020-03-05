@@ -1,12 +1,12 @@
-import { promptFetchSigner } from './lib/promptFetchSigner'
+import { promptFetchAdminSigner } from './lib/promptFetchAdminSigner'
 import { MonarchicExecutorOracleDeployer } from 'pollenium-alchemilla'
-import { xanthoceras } from '../'
+import { addressesFmn } from './lib/fmns'
 
 async function run() {
-  const signer = await promptFetchSigner('admin')
+  const signer = await promptFetchAdminSigner()
   const deployer = new MonarchicExecutorOracleDeployer({ signer })
   const { address } = await deployer.deploy()
-  xanthoceras.set('monarchicExecutorOracle', address)
+  addressesFmn.set({ key: 'monarchicExecutorOracle', value: address })
 }
 
 run()

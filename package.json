@@ -17,13 +17,13 @@
   },
   "homepage": "https://github.com/pollenium/xanthoceras#readme",
   "devDependencies": {
+    "pollenium-forgetmenot": "^5.0.0",
     "tsc": "^1.20150623.0",
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "pollenium-alchemilla": "^14.0.0",
-    "pollenium-forgetmenot": "^3.0.0",
+    "pollenium-alchemilla": "^14.1.1",
     "pollenium-honesty": "^1.0.2",
-    "pollenium-xeranthemum": "^2.0.0"
+    "pollenium-xeranthemum": "^4.0.0"
   }
 }

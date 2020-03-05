@@ -36,21 +36,31 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var fetchEngineState_1 = require("./lib/fetchEngineState");
+var pollenium_alchemilla_1 = require("pollenium-alchemilla");
+var provider_1 = require("./lib/provider");
+var __1 = require("../");
 function run() {
     return __awaiter(this, void 0, void 0, function () {
-        var state;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, fetchEngineState_1.fetchEngineState()];
+        var reader, _a, _b, _c;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
+                case 0:
+                    reader = new pollenium_alchemilla_1.EngineReader({ provider: provider_1.provider, address: __1.engine });
+                    _b = (_a = console).dir;
+                    _c = {};
+                    return [4 /*yield*/, reader.fetchOwner()];
                 case 1:
-                    state = _a.sent();
-                    console.dir({
-                        owner: state.owner.uu.toHex(),
-                        executorOracle: state.executorOracle.uu.toHex(),
-                        orderSalt: state.orderSalt.uu.toHex(),
-                        dowvsSalt: state.dowvsSalt.uu.toHex()
-                    });
+                    _c.owner = (_d.sent()).uu.toHex();
+                    return [4 /*yield*/, reader.fetchExecutorOracle()];
+                case 2:
+                    _c.executorOracle = (_d.sent()).uu.toHex();
+                    return [4 /*yield*/, reader.fetchOrderSalt()];
+                case 3:
+                    _c.orderSalt = (_d.sent()).uu.toHex();
+                    return [4 /*yield*/, reader.fetchDowvsSalt()];
+                case 4:
+                    _b.apply(_a, [(_c.dowvsSalt = (_d.sent()).uu.toHex(),
+                            _c)]);
                     return [2 /*return*/];
             }
         });

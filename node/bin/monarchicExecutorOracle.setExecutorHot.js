@@ -35,23 +35,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 exports.__esModule = true;
 var promptFetchAdminSigner_1 = require("./lib/promptFetchAdminSigner");
 var pollenium_alchemilla_1 = require("pollenium-alchemilla");
-var fmns_1 = require("./lib/fmns");
+var prompt_promise_1 = __importDefault(require("prompt-promise"));
+var pollenium_buttercup_1 = require("pollenium-buttercup");
+var pollenium_uvaursi_1 = require("pollenium-uvaursi");
+var __1 = require("../");
 function run() {
     return __awaiter(this, void 0, void 0, function () {
-        var signer, deployer, address;
+        var executorHotHex, executorHot, signer;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, promptFetchAdminSigner_1.promptFetchAdminSigner()];
+                case 0: return [4 /*yield*/, prompt_promise_1["default"]('executorHot (hex): ')];
                 case 1:
-                    signer = _a.sent();
-                    deployer = new pollenium_alchemilla_1.EngineDeployer({ signer: signer });
-                    return [4 /*yield*/, deployer.deploy()];
+                    executorHotHex = _a.sent();
+                    executorHot = new pollenium_buttercup_1.Address(pollenium_uvaursi_1.Uu.fromHexish(executorHotHex));
+                    return [4 /*yield*/, promptFetchAdminSigner_1.promptFetchAdminSigner()];
                 case 2:
-                    address = (_a.sent()).address;
-                    fmns_1.addressesFmn.set({ key: 'engine', value: address });
+                    signer = _a.sent();
+                    return [4 /*yield*/, new pollenium_alchemilla_1.MonarchicExecutorOracleWriter({
+                            signer: signer,
+                            address: __1.monarchicExecutorOracle
+                        }).setHot(executorHot)];
+                case 3:
+                    _a.sent();
                     return [2 /*return*/];
             }
         });

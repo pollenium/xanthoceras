@@ -35,21 +35,39 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 exports.__esModule = true;
-var provider_1 = require("./provider");
-var ethers_1 = require("ethers");
-var pollenium_xeranthemum_1 = require("pollenium-xeranthemum");
-function promptFetchSigner(name) {
+var promptFetchAdminSigner_1 = require("./lib/promptFetchAdminSigner");
+var pollenium_honesty_1 = require("pollenium-honesty");
+var pollenium_uvaursi_1 = require("pollenium-uvaursi");
+var fmns_1 = require("./lib/fmns");
+var __1 = require("../");
+var prompt_promise_1 = __importDefault(require("prompt-promise"));
+var dai = pollenium_uvaursi_1.Uu.fromHexish('0x6B175474E89094C44Da98b954EedeAC495271d0F');
+function run() {
     return __awaiter(this, void 0, void 0, function () {
-        var keypair;
+        var name, signer, deployer, address;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, pollenium_xeranthemum_1.promptFetchKeypair(name)];
+                case 0: return [4 /*yield*/, prompt_promise_1["default"]('name: ')];
                 case 1:
-                    keypair = _a.sent();
-                    return [2 /*return*/, new ethers_1.ethers.Wallet(keypair.privateKey.u, provider_1.provider)];
+                    name = _a.sent();
+                    return [4 /*yield*/, promptFetchAdminSigner_1.promptFetchAdminSigner()];
+                case 2:
+                    signer = _a.sent();
+                    deployer = new pollenium_honesty_1.OverseerDeployer({ signer: signer });
+                    return [4 /*yield*/, deployer.deploy({
+                            alchemillaEngine: __1.engine,
+                            dai: dai
+                        })];
+                case 3:
+                    address = (_a.sent()).address;
+                    fmns_1.overseersFmn.set({ key: name, value: address });
+                    return [2 /*return*/];
             }
         });
     });
 }
-exports.promptFetchSigner = promptFetchSigner;
+run();

@@ -36,31 +36,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var promptFetchSigner_1 = require("./lib/promptFetchSigner");
+var promptFetchAdminSigner_1 = require("./lib/promptFetchAdminSigner");
 var pollenium_alchemilla_1 = require("pollenium-alchemilla");
 var __1 = require("../");
-var fetchEngineState_1 = require("./lib/fetchEngineState");
-var pollenium_buttercup_1 = require("pollenium-buttercup");
 function run() {
     return __awaiter(this, void 0, void 0, function () {
-        var engine, monarchicExecutorOracle, engineState, signer, writer;
+        var signer, writer;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    engine = new pollenium_buttercup_1.Address(__1.xanthoceras.get('engine'));
-                    monarchicExecutorOracle = new pollenium_buttercup_1.Address(__1.xanthoceras.get('monarchicExecutorOracle'));
-                    return [4 /*yield*/, fetchEngineState_1.fetchEngineState()];
+                case 0: return [4 /*yield*/, promptFetchAdminSigner_1.promptFetchAdminSigner()];
                 case 1:
-                    engineState = _a.sent();
-                    if (engineState.executorOracle.uu.getIsEqual(monarchicExecutorOracle)) {
-                        throw new Error('Already set');
-                    }
-                    return [4 /*yield*/, promptFetchSigner_1.promptFetchSigner('admin')];
-                case 2:
                     signer = _a.sent();
-                    writer = new pollenium_alchemilla_1.EngineWriter({ signer: signer, address: engine });
-                    return [4 /*yield*/, writer.setExecutorOracle(monarchicExecutorOracle)];
-                case 3:
+                    writer = new pollenium_alchemilla_1.EngineWriter({ signer: signer, address: __1.engine });
+                    return [4 /*yield*/, writer.setExecutorOracle(__1.monarchicExecutorOracle)];
+                case 2:
                     _a.sent();
                     return [2 /*return*/];
             }

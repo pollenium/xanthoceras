@@ -1,12 +1,15 @@
-import { fetchEngineState } from './lib/fetchEngineState'
+import { EngineReader } from 'pollenium-alchemilla'
+import { provider } from './lib/provider'
+import { Address, Bytes32 } from 'pollenium-buttercup'
+import { engine } from '../'
 
 async function run() {
-  const state = await fetchEngineState()
+  const reader = new EngineReader({ provider, address: engine })
   console.dir({
-    owner: state.owner.uu.toHex(),
-    executorOracle: state.executorOracle.uu.toHex(),
-    orderSalt: state.orderSalt.uu.toHex(),
-    dowvsSalt: state.dowvsSalt.uu.toHex()
+    owner: (await reader.fetchOwner()).uu.toHex(),
+    executorOracle: (await reader.fetchExecutorOracle()).uu.toHex(),
+    orderSalt: (await reader.fetchOrderSalt()).uu.toHex(),
+    dowvsSalt: (await reader.fetchDowvsSalt()).uu.toHex()
   })
 }
 

@@ -36,22 +36,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var promptFetchSigner_1 = require("./lib/promptFetchSigner");
+var promptFetchAdminSigner_1 = require("./lib/promptFetchAdminSigner");
 var pollenium_alchemilla_1 = require("pollenium-alchemilla");
-var __1 = require("../");
+var fmns_1 = require("./lib/fmns");
 function run() {
     return __awaiter(this, void 0, void 0, function () {
         var signer, deployer, address;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, promptFetchSigner_1.promptFetchSigner('admin')];
+                case 0: return [4 /*yield*/, promptFetchAdminSigner_1.promptFetchAdminSigner()];
                 case 1:
                     signer = _a.sent();
                     deployer = new pollenium_alchemilla_1.MonarchicExecutorOracleDeployer({ signer: signer });
                     return [4 /*yield*/, deployer.deploy()];
                 case 2:
                     address = (_a.sent()).address;
-                    __1.xanthoceras.set('monarchicExecutorOracle', address);
+                    fmns_1.addressesFmn.set({ key: 'monarchicExecutorOracle', value: address });
                     return [2 /*return*/];
             }
         });
