@@ -9,7 +9,9 @@ async function run() {
     owner: (await reader.fetchOwner()).uu.toHex(),
     executorOracle: (await reader.fetchExecutorOracle()).uu.toHex(),
     orderSalt: (await reader.fetchOrderSalt()).uu.toHex(),
-    dowvsSalt: (await reader.fetchDowvsSalt()).uu.toHex()
+    depositSalt: (await reader.fetchDepositSalt()).uu.toHex(),
+    withdrawSalt: (await reader.fetchWithdrawSalt()).uu.toHex(),
+    withdrawAndNotifySalt: (await reader.fetchWithdrawAndNotifySalt()).uu.toHex()
   })
 }
 

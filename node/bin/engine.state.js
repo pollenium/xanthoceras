@@ -57,9 +57,15 @@ function run() {
                     return [4 /*yield*/, reader.fetchOrderSalt()];
                 case 3:
                     _c.orderSalt = (_d.sent()).uu.toHex();
-                    return [4 /*yield*/, reader.fetchDowvsSalt()];
+                    return [4 /*yield*/, reader.fetchDepositSalt()];
                 case 4:
-                    _b.apply(_a, [(_c.dowvsSalt = (_d.sent()).uu.toHex(),
+                    _c.depositSalt = (_d.sent()).uu.toHex();
+                    return [4 /*yield*/, reader.fetchWithdrawSalt()];
+                case 5:
+                    _c.withdrawSalt = (_d.sent()).uu.toHex();
+                    return [4 /*yield*/, reader.fetchWithdrawAndNotifySalt()];
+                case 6:
+                    _b.apply(_a, [(_c.withdrawAndNotifySalt = (_d.sent()).uu.toHex(),
                             _c)]);
                     return [2 /*return*/];
             }

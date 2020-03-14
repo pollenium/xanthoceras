@@ -22,7 +22,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "pollenium-alchemilla": "^14.1.1",
+    "pollenium-alchemilla": "^15.0.0",
     "pollenium-honesty": "^1.0.2",
     "pollenium-xeranthemum": "^4.0.0"
   }
