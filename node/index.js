@@ -16,3 +16,14 @@ exports.engine = engine_1.engine;
 var monarchicExecutorOracle_1 = require("./addresses/monarchicExecutorOracle");
 exports.monarchicExecutorOracle = monarchicExecutorOracle_1.monarchicExecutorOracle;
 exports.overseers = _overseers;
+exports.applicationIds = {
+    alchemilla: {
+        signedOrders: {
+            v0: new pollenium_buttercup_1.Bytes32(pollenium_uvaursi_1.Uu.fromUtf8('alchemilla.signedOrders.v0').genPaddedLeft(32))
+        }
+    }
+};
+exports.signalingServerUrls = [
+    'wss://begonia-us-1.herokuapp.com',
+    'wss://begonia-eu-1.herokuapp.com'
+];
