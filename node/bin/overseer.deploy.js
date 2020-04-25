@@ -41,11 +41,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 var promptFetchAdminSigner_1 = require("./lib/promptFetchAdminSigner");
 var pollenium_honesty_1 = require("pollenium-honesty");
-var pollenium_uvaursi_1 = require("pollenium-uvaursi");
 var fmns_1 = require("./lib/fmns");
 var __1 = require("../");
 var prompt_promise_1 = __importDefault(require("prompt-promise"));
-var dai = pollenium_uvaursi_1.Uu.fromHexish('0x6B175474E89094C44Da98b954EedeAC495271d0F');
 function run() {
     return __awaiter(this, void 0, void 0, function () {
         var name, signer, deployer, address;
@@ -60,7 +58,7 @@ function run() {
                     deployer = new pollenium_honesty_1.OverseerDeployer({ signer: signer });
                     return [4 /*yield*/, deployer.deploy({
                             alchemillaEngine: __1.engine,
-                            dai: dai
+                            dai: __1.dai
                         })];
                 case 3:
                     address = (_a.sent()).address;

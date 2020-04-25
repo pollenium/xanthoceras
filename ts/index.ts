@@ -18,6 +18,6 @@ export const applicationIds = {
 }
 
 export const signalingServerUrls: string[] = [
-    'wss://begonia-us-1.herokuapp.com',
-    'wss://begonia-eu-1.herokuapp.com'
-  ]
+  'wss://begonia-us-1.herokuapp.com',
+  'wss://begonia-eu-1.herokuapp.com'
+]
